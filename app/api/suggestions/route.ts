@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const FROM = "Blomsterkollektivet <hei@blomsterkollektivet.no>";
-const ADMIN = "marte.loge@gmail.com";
+const ADMIN = "dibber@amdal.dev";
 
 async function sendEmail(to: string | string[], subject: string, html: string) {
   const res = await fetch("https://api.resend.com/emails", {
