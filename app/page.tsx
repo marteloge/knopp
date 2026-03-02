@@ -5,7 +5,7 @@ export default function Home() {
     <div className="min-h-screen bg-cream">
       {/* Nav */}
       <nav className="flex items-center justify-between px-6 py-5 max-w-5xl mx-auto">
-        <span className="font-serif text-2xl text-forest-700 tracking-tight">knopp.</span>
+        <span className="font-serif text-2xl text-forest-700 tracking-tight">blomsterkollektivet.</span>
         <Link href="/florist" className="text-sm text-forest-600 hover:text-forest-700 font-medium">
           Er du florist? →
         </Link>
@@ -14,11 +14,11 @@ export default function Home() {
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-6 py-16 text-center">
         <div className="inline-block bg-blush-100 text-blush-600 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-          🌸 Norges første blomstermarkedsplass
+          🌸 Blomsterkollektivet — Norges floristfellesskap
         </div>
         <h1 className="font-serif text-5xl md:text-6xl text-gray-900 leading-tight mb-6">
           Finn din florist.<br />
-          <span className="text-forest-600">Motta tilbud. Velg.</span>
+          <span className="text-forest-600">Finn din florist.</span>
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
           Send én blomsterforespørsel og motta tilbud fra 3 lokale florister
@@ -177,8 +177,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-gray-100 py-8">
         <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-          <span className="font-serif text-lg text-forest-700">knopp.</span>
-          <span>© 2026 Knopp. Norges blomstermarkedsplass.</span>
+          <span className="font-serif text-lg text-forest-700">blomsterkollektivet.</span>
+          <span>© 2026 Blomsterkollektivet. Norges floristfellesskap.</span>
           <Link href="/florist" className="hover:text-gray-600">
             For florister
           </Link>
