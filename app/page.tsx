@@ -1,4 +1,85 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+
+function WaitlistForm({ ref: refCode }: { ref?: string }) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [referralLink, setReferralLink] = useState("");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, ref: refCode }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("done");
+        setReferralLink(data.referralLink || "");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "done") {
+    return (
+      <div className="text-center">
+        <div className="text-4xl mb-4">🌸</div>
+        <h3 className="font-serif text-2xl text-gray-800 mb-3">Du er på lista!</h3>
+        <p className="text-gray-500 mb-6">Vi varsler deg når Blomsterkollektivet åpner. Sjekk e-posten din.</p>
+        {referralLink && (
+          <div className="bg-forest-50 rounded-2xl p-5 text-left">
+            <p className="text-sm font-medium text-forest-700 mb-2">Del ventelistelenken din:</p>
+            <div className="flex items-center gap-2">
+              <input
+                readOnly
+                value={referralLink}
+                className="flex-1 text-xs bg-white border border-gray-200 rounded-lg px-3 py-2 text-gray-600"
+              />
+              <button
+                onClick={() => navigator.clipboard.writeText(referralLink)}
+                className="text-xs bg-forest-600 text-white px-3 py-2 rounded-lg hover:bg-forest-700 transition-colors whitespace-nowrap"
+              >
+                Kopier
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <input
+        type="email"
+        required
+        placeholder="din@epost.no"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="flex-1 px-5 py-3 rounded-full border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-forest-400 text-gray-800 placeholder-gray-400"
+      />
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className="btn-primary whitespace-nowrap"
+      >
+        {status === "loading" ? "Sender…" : "Meld meg på →"}
+      </button>
+      {status === "error" && (
+        <p className="text-red-500 text-sm text-center w-full">Noe gikk galt. Prøv igjen.</p>
+      )}
+    </form>
+  );
+}
 
 export default function Home() {
   return (
@@ -6,9 +87,17 @@ export default function Home() {
       {/* Nav */}
       <nav className="flex items-center justify-between px-6 py-5 max-w-5xl mx-auto">
         <span className="font-serif text-2xl text-forest-700 tracking-tight">blomsterkollektivet.</span>
-        <Link href="/florist" className="text-sm text-forest-600 hover:text-forest-700 font-medium">
-          Er du florist? →
-        </Link>
+        <div className="flex items-center gap-6 text-sm">
+          <Link href="/blogg" className="text-gray-500 hover:text-forest-600 transition-colors hidden sm:block">
+            Blogg
+          </Link>
+          <Link href="/verv" className="text-gray-500 hover:text-forest-600 transition-colors hidden sm:block">
+            For florister
+          </Link>
+          <Link href="/florist" className="text-forest-600 hover:text-forest-700 font-medium">
+            Er du florist? →
+          </Link>
+        </div>
       </nav>
 
       {/* Hero */}
@@ -39,6 +128,19 @@ export default function Home() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="border-t border-gray-100" />
       </div>
+
+      {/* Waitlist */}
+      <section className="max-w-2xl mx-auto px-6 py-14 text-center">
+        <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+          <div className="text-3xl mb-4">🌿</div>
+          <h2 className="font-serif text-3xl text-gray-800 mb-3">Bli med på ventelisten</h2>
+          <p className="text-gray-500 mb-8 leading-relaxed">
+            Vi er i oppstartsfasen og kobler sammen norske blomsterelsker med lokale florister og bønder.
+            Meld deg på — du hører fra oss når vi åpner.
+          </p>
+          <WaitlistForm />
+        </div>
+      </section>
 
       {/* How it works — kunder */}
       <section className="max-w-5xl mx-auto px-6 py-16">
@@ -110,14 +212,14 @@ export default function Home() {
         <div className="bg-forest-700 rounded-3xl p-10 md:p-14 text-white">
           <div className="max-w-2xl">
             <div className="text-forest-300 text-sm font-medium uppercase tracking-widest mb-4">
-              For florister
+              For florister og blomsterbønder
             </div>
             <h2 className="font-serif text-4xl mb-4 leading-tight">
               Kvalifiserte leads.<br />
               Betal kun per booking.
             </h2>
             <p className="text-forest-100 text-lg mb-6 leading-relaxed">
-              Slutt å bruke tid på tilbud som aldri fører til noe. Knopp sender deg
+              Slutt å bruke tid på tilbud som aldri fører til noe. Blomsterkollektivet sender deg
               forespørsler fra kunder som faktisk er klare til å booke. Du betaler 10%
               kun når oppdraget er bekreftet.
             </p>
@@ -134,12 +236,20 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <Link
-              href="/florist"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-forest-700 font-semibold hover:bg-forest-50 transition-colors duration-200"
-            >
-              Registrer deg som florist →
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/florist"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-forest-700 font-semibold hover:bg-forest-50 transition-colors duration-200"
+              >
+                Registrer deg som florist →
+              </Link>
+              <Link
+                href="/verv"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-forest-300 text-forest-100 font-semibold hover:bg-forest-600 transition-colors duration-200"
+              >
+                Les mer om samarbeid
+              </Link>
+            </div>
             <p className="text-forest-300 text-sm mt-3">
               🌟 De første 50 floristene får grunnlegger-status for alltid
             </p>
@@ -178,10 +288,12 @@ export default function Home() {
       <footer className="border-t border-gray-100 py-8">
         <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
           <span className="font-serif text-lg text-forest-700">blomsterkollektivet.</span>
-          <span>© 2026 Blomsterkollektivet. Norges floristfellesskap.</span>
-          <Link href="/florist" className="hover:text-gray-600">
-            For florister
-          </Link>
+          <div className="flex gap-6">
+            <Link href="/blogg" className="hover:text-gray-600">Blogg</Link>
+            <Link href="/forslag" className="hover:text-gray-600">Forslag</Link>
+            <Link href="/verv" className="hover:text-gray-600">For florister</Link>
+          </div>
+          <span>© 2026 Blomsterkollektivet.</span>
         </div>
       </footer>
     </div>
