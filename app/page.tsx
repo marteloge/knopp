@@ -1,48 +1,94 @@
 import Link from "next/link";
 
-/* ─── Inline SVG botanical decorations ─── */
-function LeafDecoration({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M60 10C60 10 20 40 20 70C20 90 38 110 60 110C82 110 100 90 100 70C100 40 60 10 60 10Z"
-        fill="currentColor"
-        opacity="0.08"
-      />
-      <path
-        d="M60 20C60 20 60 100 60 110"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        opacity="0.12"
-      />
-      <path d="M60 45C45 55 35 65 30 75" stroke="currentColor" strokeWidth="1" opacity="0.08" />
-      <path d="M60 55C75 63 85 70 90 78" stroke="currentColor" strokeWidth="1" opacity="0.08" />
-    </svg>
-  );
-}
+/* ─── Botanical SVG illustrations — visible and beautiful ─── */
 
-function FloralBurst({ className }: { className?: string }) {
+function Peony({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Petals */}
-      <ellipse cx="100" cy="60" rx="22" ry="35" fill="currentColor" opacity="0.06" transform="rotate(0 100 100)" />
-      <ellipse cx="100" cy="60" rx="22" ry="35" fill="currentColor" opacity="0.06" transform="rotate(72 100 100)" />
-      <ellipse cx="100" cy="60" rx="22" ry="35" fill="currentColor" opacity="0.06" transform="rotate(144 100 100)" />
-      <ellipse cx="100" cy="60" rx="22" ry="35" fill="currentColor" opacity="0.06" transform="rotate(216 100 100)" />
-      <ellipse cx="100" cy="60" rx="22" ry="35" fill="currentColor" opacity="0.06" transform="rotate(288 100 100)" />
+      {/* Outer petals */}
+      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#f0a99a" opacity="0.35" transform="rotate(0 100 100)" />
+      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#e48070" opacity="0.25" transform="rotate(60 100 100)" />
+      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#f8c8be" opacity="0.35" transform="rotate(120 100 100)" />
+      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#f0a99a" opacity="0.25" transform="rotate(180 100 100)" />
+      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#fce4df" opacity="0.35" transform="rotate(240 100 100)" />
+      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#e48070" opacity="0.25" transform="rotate(300 100 100)" />
+      {/* Inner petals */}
+      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#f8c8be" opacity="0.5" transform="rotate(30 100 100)" />
+      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#fce4df" opacity="0.45" transform="rotate(90 100 100)" />
+      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#f0a99a" opacity="0.4" transform="rotate(150 100 100)" />
+      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#f8c8be" opacity="0.5" transform="rotate(210 100 100)" />
+      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#fce4df" opacity="0.45" transform="rotate(270 100 100)" />
+      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#f0a99a" opacity="0.4" transform="rotate(330 100 100)" />
       {/* Center */}
-      <circle cx="100" cy="100" r="12" fill="currentColor" opacity="0.1" />
+      <circle cx="100" cy="100" r="14" fill="#c17f6e" opacity="0.35" />
+      <circle cx="100" cy="100" r="8" fill="#a3654f" opacity="0.3" />
     </svg>
   );
 }
 
-function PetalScatter({ className }: { className?: string }) {
+function WildFlower({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="30" cy="25" rx="8" ry="14" fill="currentColor" opacity="0.07" transform="rotate(-20 30 25)" />
-      <ellipse cx="70" cy="40" rx="6" ry="11" fill="currentColor" opacity="0.05" transform="rotate(30 70 40)" />
-      <ellipse cx="50" cy="75" rx="9" ry="15" fill="currentColor" opacity="0.06" transform="rotate(-10 50 75)" />
-      <ellipse cx="85" cy="70" rx="5" ry="9" fill="currentColor" opacity="0.04" transform="rotate(45 85 70)" />
+    <svg className={className} viewBox="0 0 120 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Stem */}
+      <path d="M60 90 C58 130, 55 170, 60 210" stroke="#80bc74" strokeWidth="2.5" opacity="0.5" strokeLinecap="round" />
+      {/* Leaves on stem */}
+      <path d="M60 140 C45 130, 30 128, 25 135 C30 140, 45 142, 60 140Z" fill="#b5d9ac" opacity="0.45" />
+      <path d="M60 165 C75 155, 88 155, 92 162 C87 167, 75 167, 60 165Z" fill="#80bc74" opacity="0.4" />
+      {/* Flower petals */}
+      <ellipse cx="60" cy="52" rx="16" ry="28" fill="#f8c8be" opacity="0.5" />
+      <ellipse cx="60" cy="52" rx="16" ry="28" fill="#fce4df" opacity="0.45" transform="rotate(72 60 70)" />
+      <ellipse cx="60" cy="52" rx="16" ry="28" fill="#f0a99a" opacity="0.4" transform="rotate(144 60 70)" />
+      <ellipse cx="60" cy="52" rx="16" ry="28" fill="#f8c8be" opacity="0.5" transform="rotate(216 60 70)" />
+      <ellipse cx="60" cy="52" rx="16" ry="28" fill="#fce4df" opacity="0.45" transform="rotate(288 60 70)" />
+      {/* Center */}
+      <circle cx="60" cy="70" r="10" fill="#edc47e" opacity="0.6" />
+      <circle cx="60" cy="70" r="5" fill="#e4a94d" opacity="0.5" />
+    </svg>
+  );
+}
+
+function LeafBranch({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 180 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Main stem */}
+      <path d="M90 10 C88 60, 85 150, 90 290" stroke="#80bc74" strokeWidth="2.5" opacity="0.45" strokeLinecap="round" />
+      {/* Leaves — alternating sides */}
+      <path d="M90 40 C65 25, 40 28, 30 40 C40 50, 60 48, 90 40Z" fill="#b5d9ac" opacity="0.4" />
+      <path d="M90 70 C115 55, 140 58, 148 70 C138 80, 118 78, 90 70Z" fill="#dcedd8" opacity="0.45" />
+      <path d="M90 100 C65 85, 38 90, 28 105 C40 112, 62 108, 90 100Z" fill="#80bc74" opacity="0.35" />
+      <path d="M90 135 C118 120, 145 125, 152 138 C142 148, 120 143, 90 135Z" fill="#b5d9ac" opacity="0.4" />
+      <path d="M90 170 C62 158, 38 162, 30 175 C42 182, 64 178, 90 170Z" fill="#dcedd8" opacity="0.4" />
+      <path d="M90 205 C116 192, 142 196, 150 210 C140 218, 118 214, 90 205Z" fill="#80bc74" opacity="0.3" />
+      <path d="M90 240 C68 228, 45 232, 38 245 C48 252, 68 248, 90 240Z" fill="#b5d9ac" opacity="0.35" />
+    </svg>
+  );
+}
+
+function FloatingPetals({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Scattered petals falling */}
+      <ellipse cx="80" cy="60" rx="12" ry="20" fill="#f8c8be" opacity="0.4" transform="rotate(-25 80 60)" />
+      <ellipse cx="320" cy="100" rx="10" ry="16" fill="#f0a99a" opacity="0.35" transform="rotate(35 320 100)" />
+      <ellipse cx="180" cy="180" rx="14" ry="22" fill="#fce4df" opacity="0.45" transform="rotate(-15 180 180)" />
+      <ellipse cx="50" cy="280" rx="11" ry="18" fill="#f0a99a" opacity="0.3" transform="rotate(50 50 280)" />
+      <ellipse cx="350" cy="250" rx="13" ry="20" fill="#f8c8be" opacity="0.4" transform="rotate(-40 350 250)" />
+      <ellipse cx="250" cy="50" rx="9" ry="15" fill="#fce4df" opacity="0.35" transform="rotate(20 250 50)" />
+      <ellipse cx="120" cy="340" rx="12" ry="19" fill="#f8c8be" opacity="0.35" transform="rotate(-30 120 340)" />
+      <ellipse cx="290" cy="330" rx="10" ry="17" fill="#fce4df" opacity="0.4" transform="rotate(45 290 330)" />
+    </svg>
+  );
+}
+
+function SmallFlower({ className, color = "#f0a99a" }: { className?: string; color?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="30" cy="18" rx="8" ry="14" fill={color} opacity="0.45" />
+      <ellipse cx="30" cy="18" rx="8" ry="14" fill={color} opacity="0.4" transform="rotate(72 30 30)" />
+      <ellipse cx="30" cy="18" rx="8" ry="14" fill={color} opacity="0.45" transform="rotate(144 30 30)" />
+      <ellipse cx="30" cy="18" rx="8" ry="14" fill={color} opacity="0.4" transform="rotate(216 30 30)" />
+      <ellipse cx="30" cy="18" rx="8" ry="14" fill={color} opacity="0.45" transform="rotate(288 30 30)" />
+      <circle cx="30" cy="30" r="6" fill="#edc47e" opacity="0.6" />
     </svg>
   );
 }
@@ -86,19 +132,26 @@ export default function Home() {
       </nav>
 
       {/* ═══════════════ HERO ═══════════════ */}
-      <section className="relative min-h-[85vh] flex items-center botanical-bg">
-        {/* Decorative background elements */}
+      <section className="relative min-h-[85vh] flex items-center">
+        {/* Decorative botanicals — actually visible! */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <FloralBurst className="absolute -top-10 -right-10 w-[500px] h-[500px] text-forest-400 animate-float-slow opacity-60" />
-          <FloralBurst className="absolute -bottom-20 -left-20 w-[400px] h-[400px] text-blush-400 animate-float-reverse opacity-40" />
-          <LeafDecoration className="absolute top-20 left-[10%] w-24 h-24 text-forest-500 animate-sway opacity-70" />
-          <LeafDecoration className="absolute top-40 right-[15%] w-16 h-16 text-sage-400 animate-float-slower opacity-50" />
-          <PetalScatter className="absolute bottom-32 right-[25%] w-40 h-40 text-blush-400 animate-float-slow" />
-          <PetalScatter className="absolute top-1/3 left-[5%] w-32 h-32 text-petal-300 animate-float-reverse" />
-
-          {/* Gradient orbs */}
-          <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-gradient-radial from-forest-200/20 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-radial from-blush-200/15 to-transparent rounded-full blur-3xl" />
+          {/* Large peony top-right */}
+          <Peony className="absolute -top-16 -right-16 w-[380px] h-[380px] animate-float-slow" />
+          {/* Leaf branch left side */}
+          <LeafBranch className="absolute top-10 -left-6 w-[140px] h-[240px] animate-sway" />
+          {/* Wildflower right */}
+          <WildFlower className="absolute top-1/4 right-[8%] w-[100px] h-[180px] animate-float-slower" />
+          {/* Small flowers scattered */}
+          <SmallFlower className="absolute top-[15%] left-[20%] w-14 h-14 animate-float-reverse" color="#f0a99a" />
+          <SmallFlower className="absolute bottom-[30%] right-[20%] w-10 h-10 animate-float-slow" color="#f8c8be" />
+          <SmallFlower className="absolute bottom-[20%] left-[12%] w-12 h-12 animate-sway" color="#e48070" />
+          {/* Floating petals across the whole hero */}
+          <FloatingPetals className="absolute inset-0 w-full h-full animate-float-slow" />
+          {/* Another leaf branch, bottom-right */}
+          <LeafBranch className="absolute -bottom-10 right-[3%] w-[120px] h-[200px] animate-float-reverse scale-x-[-1]" />
+          {/* Gradient orbs for depth */}
+          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-radial from-blush-200/25 to-transparent rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-gradient-radial from-forest-200/20 to-transparent rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
@@ -154,8 +207,11 @@ export default function Home() {
 
       {/* ═══════════════ HOW IT WORKS ═══════════════ */}
       <section className="bg-forest-50 relative py-24">
+        {/* Decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <LeafDecoration className="absolute top-10 right-[8%] w-20 h-20 text-forest-400 opacity-40 animate-sway" />
+          <SmallFlower className="absolute top-12 right-[10%] w-16 h-16 animate-sway" color="#b5d9ac" />
+          <SmallFlower className="absolute bottom-16 left-[8%] w-12 h-12 animate-float-slow" color="#80bc74" />
+          <LeafBranch className="absolute -bottom-8 right-[2%] w-[80px] h-[140px] opacity-60 animate-sway" />
         </div>
 
         <div className="max-w-5xl mx-auto px-6 relative z-10">
@@ -230,10 +286,11 @@ export default function Home() {
       <WaveDivider flip color="#f0f7ee" />
 
       {/* ═══════════════ OCCASIONS ═══════════════ */}
-      <section className="py-24 relative botanical-bg">
+      <section className="py-24 relative">
+        {/* Decorative */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <PetalScatter className="absolute top-20 left-[5%] w-32 h-32 text-blush-300 animate-float-slow" />
-          <FloralBurst className="absolute bottom-0 right-0 w-[300px] h-[300px] text-forest-300 opacity-30" />
+          <FloatingPetals className="absolute inset-0 w-full h-full opacity-70 animate-float-slower" />
+          <Peony className="absolute -bottom-20 -left-20 w-[280px] h-[280px] opacity-50" />
         </div>
 
         <div className="max-w-5xl mx-auto px-6 relative z-10">
@@ -248,66 +305,40 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                icon: (
-                  <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
-                    <circle cx="16" cy="12" r="4" fill="currentColor" opacity="0.2" />
-                    <path d="M8 28C8 22.5 11.6 18 16 18C20.4 18 24 22.5 24 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M16 4L17.5 8.5L22 7L19 11L23 13.5L18.5 13.5L18 18H14L13.5 13.5L9 13.5L13 11L10 7L14.5 8.5L16 4Z" fill="currentColor" opacity="0.15" />
-                  </svg>
-                ),
+                emoji: "💍",
                 label: "Bryllup",
                 desc: "Brudebukett, bordpynt, kirke & fest",
                 gradient: "from-petal-50 to-blush-50",
-                border: "border-petal-100",
-                iconColor: "text-petal-400",
+                border: "border-petal-200/60",
               },
               {
-                icon: (
-                  <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
-                    <rect x="6" y="8" width="20" height="16" rx="3" fill="currentColor" opacity="0.12" />
-                    <path d="M6 14H26" stroke="currentColor" strokeWidth="1.5" />
-                    <circle cx="16" cy="20" r="3" fill="currentColor" opacity="0.2" />
-                  </svg>
-                ),
+                emoji: "🏢",
                 label: "Bedrift",
                 desc: "Kontor, arrangement, resepsjon",
                 gradient: "from-forest-50 to-sage-50",
-                border: "border-forest-100",
-                iconColor: "text-forest-500",
+                border: "border-forest-200/60",
               },
               {
-                icon: (
-                  <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
-                    <path d="M16 6C12 6 8 10 8 14C8 22 16 28 16 28C16 28 24 22 24 14C24 10 20 6 16 6Z" fill="currentColor" opacity="0.12" />
-                    <path d="M16 12V18M13 15H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                ),
+                emoji: "🎉",
                 label: "Feiring",
                 desc: "Bursdag, konfirmasjon, jubileum",
                 gradient: "from-warm-50 to-cream-200",
-                border: "border-warm-100",
-                iconColor: "text-warm-400",
+                border: "border-warm-200/60",
               },
               {
-                icon: (
-                  <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
-                    <path d="M16 8C16 8 10 14 10 18C10 21.3 12.7 24 16 24C19.3 24 22 21.3 22 18C22 14 16 8 16 8Z" fill="currentColor" opacity="0.12" />
-                    <line x1="16" y1="14" x2="16" y2="20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                ),
+                emoji: "🕯️",
                 label: "Minnestund",
                 desc: "Kranser, dekorasjoner, med varme",
                 gradient: "from-sage-50 to-cream-200",
-                border: "border-sage-100",
-                iconColor: "text-sage-500",
+                border: "border-sage-200/60",
               },
             ].map((item) => (
               <div
                 key={item.label}
                 className={`relative bg-gradient-to-br ${item.gradient} rounded-3xl p-7 border ${item.border} hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-500 group cursor-default`}
               >
-                <div className={`${item.iconColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  {item.icon}
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {item.emoji}
                 </div>
                 <h3 className="font-serif text-xl text-gray-800 mb-1.5">{item.label}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
@@ -321,10 +352,11 @@ export default function Home() {
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-forest-800 via-forest-700 to-forest-900">
-            {/* Decorative elements inside */}
+            {/* Decorative elements — visible on dark bg */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <FloralBurst className="absolute -top-20 -right-20 w-[400px] h-[400px] text-white opacity-[0.04]" />
-              <LeafDecoration className="absolute bottom-10 right-20 w-32 h-32 text-white opacity-[0.06] animate-sway" />
+              <Peony className="absolute -top-16 -right-16 w-[320px] h-[320px] opacity-[0.12]" />
+              <LeafBranch className="absolute -bottom-10 right-10 w-[100px] h-[180px] opacity-[0.1] animate-sway" />
+              <SmallFlower className="absolute top-20 right-[30%] w-16 h-16 opacity-[0.08]" color="#ffffff" />
               <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-forest-600/20 to-transparent" />
             </div>
 
@@ -383,6 +415,10 @@ export default function Home() {
       {/* ═══════════════ STATS ═══════════════ */}
       <section className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-cream to-cream-200 pointer-events-none" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <SmallFlower className="absolute top-8 left-[15%] w-10 h-10 animate-float-slow opacity-70" color="#b5d9ac" />
+          <SmallFlower className="absolute bottom-8 right-[12%] w-12 h-12 animate-sway opacity-60" color="#f8c8be" />
+        </div>
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <div className="grid sm:grid-cols-3 gap-8">
             {[
@@ -419,12 +455,13 @@ export default function Home() {
 
       {/* ═══════════════ FINAL CTA ═══════════════ */}
       <section className="relative py-28 overflow-hidden">
-        {/* Background */}
+        {/* Background with botanicals */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-forest-50 via-cream to-blush-50" />
-          <FloralBurst className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] text-forest-400 opacity-20" />
-          <PetalScatter className="absolute top-10 right-[10%] w-48 h-48 text-blush-300 animate-float-slow" />
-          <LeafDecoration className="absolute bottom-10 left-[10%] w-24 h-24 text-forest-400 animate-sway opacity-60" />
+          <Peony className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-25" />
+          <WildFlower className="absolute top-8 right-[12%] w-[80px] h-[150px] animate-sway opacity-60" />
+          <WildFlower className="absolute bottom-8 left-[10%] w-[70px] h-[130px] animate-float-slow opacity-50 scale-x-[-1]" />
+          <FloatingPetals className="absolute inset-0 w-full h-full opacity-50 animate-float-reverse" />
         </div>
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
