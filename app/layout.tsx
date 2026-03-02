@@ -6,15 +6,15 @@ const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 const playfair = Playfair_Display({ variable: "--font-playfair", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Knopp — Finn din florist. Motta tilbud. Velg.",
+  title: "Blomsterkollektivet — Finn din florist. Motta tilbud. Velg.",
   description:
     "Send én blomsterforespørsel og motta tilbud fra 3 lokale florister innen 48 timer. Gratis for deg som kunde — floristen betaler kun ved bekreftet oppdrag.",
-  keywords: "florist, bryllupsblomster, blomster, tilbud, Norge, floristmarkedsplass",
+  keywords: "florist, bryllupsblomster, blomster, tilbud, Norge, blomsterkollektivet, floristfellesskap",
   openGraph: {
-    title: "Knopp — Finn din florist",
+    title: "Blomsterkollektivet — Finn din florist",
     description: "Send én blomsterforespørsel. Motta tilbud fra lokale florister innen 48 timer.",
-    url: "https://knopp.no",
-    siteName: "Knopp",
+    url: "https://blomsterkollektivet.no",
+    siteName: "Blomsterkollektivet",
     locale: "nb_NO",
     type: "website",
   },
