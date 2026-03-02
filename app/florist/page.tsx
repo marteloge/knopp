@@ -110,15 +110,8 @@ export default function FloristPage() {
     <div className="min-h-screen bg-gradient-to-b from-cream to-cream-200">
       {/* Nav */}
       <nav className="flex items-center justify-between px-6 py-5 max-w-3xl mx-auto">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-forest-400 to-forest-600 flex items-center justify-center">
-            <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C8 2 4 6 4 10C4 16 12 22 12 22C12 22 20 16 20 10C20 6 16 2 12 2ZM12 13C10.3 13 9 11.7 9 10C9 8.3 10.3 7 12 7C13.7 7 15 8.3 15 10C15 11.7 13.7 13 12 13Z" />
-            </svg>
-          </div>
-          <span className="font-serif text-xl text-forest-700 tracking-tight">
-            blomsterkollektivet<span className="text-blush-400">.</span>
-          </span>
+        <Link href="/" className="font-serif text-xl text-forest-700 tracking-tight italic">
+          blomsterkollektivet<span className="text-blush-400">.</span>
         </Link>
         <Link href="/bestilling" className="text-sm text-gray-500 hover:text-forest-600 transition-colors">
           Trenger du blomster?
