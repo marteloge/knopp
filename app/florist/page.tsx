@@ -68,7 +68,7 @@ export default function FloristPage() {
       if (!res.ok) throw new Error("Noe gikk galt");
       setSent(true);
     } catch {
-      setError("Noe gikk galt. Prøv igjen eller send e-post til hei@knopp.no");
+      setError("Noe gikk galt. Prøv igjen eller send e-post til hei@blomsterkollektivet.no");
     } finally {
       setLoading(false);
     }
@@ -89,7 +89,7 @@ export default function FloristPage() {
               🌟 Du er registrert som grunnlegger-florist!
             </p>
             <p className="text-xs text-forest-600 leading-relaxed">
-              De første 50 floristene på Knopp får permanent 10% provisjon
+              De første 50 floristene på Blomsterkollektivet får permanent 10% provisjon
               (istedenfor standard 12%) og grunnlegger-badge på profilen.
             </p>
           </div>
@@ -106,7 +106,7 @@ export default function FloristPage() {
       {/* Nav */}
       <nav className="flex items-center justify-between px-6 py-5 max-w-3xl mx-auto">
         <Link href="/" className="font-serif text-2xl text-forest-700 tracking-tight">
-          knopp.
+          blomsterkollektivet.
         </Link>
         <Link href="/bestilling" className="text-sm text-gray-500 hover:text-gray-700">
           Trenger du blomster?
@@ -120,10 +120,10 @@ export default function FloristPage() {
             🌟 Grunnlegger-florist — de første 50
           </div>
           <h1 className="font-serif text-4xl text-gray-800 mb-3">
-            Bli med på Knopp
+            Bli med på Blomsterkollektivet
           </h1>
           <p className="text-gray-600 leading-relaxed">
-            Knopp matcher kunder med lokale florister. Du betaler kun 10% provisjon
+            Blomsterkollektivet matcher kunder med lokale florister. Du betaler kun 10% provisjon
             når du får et bekreftet oppdrag — null månedlig avgift.
           </p>
         </div>
