@@ -1,23 +1,32 @@
 import Link from "next/link";
-import {
-  Peony,
-  Rose,
-  EucalyptusBranch,
-  Dahlia,
-  FloatingPetals,
-  WildflowerSprig,
-  SmallBlossom,
-  WaveDivider,
-} from "./components/botanicals";
+
+/* ─── Minimal decorative element — just a single elegant line flower ─── */
+function FloralAccent({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="6" stroke="currentColor" strokeWidth="1" opacity="0.4" />
+      <ellipse cx="40" cy="24" rx="6" ry="12" stroke="currentColor" strokeWidth="0.8" opacity="0.25" />
+      <ellipse cx="40" cy="24" rx="6" ry="12" stroke="currentColor" strokeWidth="0.8" opacity="0.25" transform="rotate(72 40 40)" />
+      <ellipse cx="40" cy="24" rx="6" ry="12" stroke="currentColor" strokeWidth="0.8" opacity="0.25" transform="rotate(144 40 40)" />
+      <ellipse cx="40" cy="24" rx="6" ry="12" stroke="currentColor" strokeWidth="0.8" opacity="0.25" transform="rotate(216 40 40)" />
+      <ellipse cx="40" cy="24" rx="6" ry="12" stroke="currentColor" strokeWidth="0.8" opacity="0.25" transform="rotate(288 40 40)" />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-cream overflow-hidden">
       {/* ═══════════════ NAV ═══════════════ */}
-      <nav className="relative z-50 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
-        <span className="font-serif text-2xl text-forest-700 tracking-tight italic">
-          blomsterkollektivet<span className="text-blush-400">.</span>
-        </span>
+      <nav className="relative z-50 flex items-center justify-between px-6 py-6 max-w-6xl mx-auto">
+        <Link href="/" className="flex flex-col leading-none">
+          <span className="font-display text-2xl text-forest-700 tracking-tight">
+            blomster
+          </span>
+          <span className="font-display text-2xl text-forest-700 tracking-tight -mt-1">
+            kollektivet<span className="text-blush-400">.</span>
+          </span>
+        </Link>
         <div className="flex items-center gap-6">
           <Link href="/bestilling" className="text-sm text-gray-500 hover:text-forest-600 transition-colors hidden sm:block">
             Bestill blomster
@@ -29,148 +38,144 @@ export default function Home() {
       </nav>
 
       {/* ═══════════════ HERO ═══════════════ */}
-      <section className="relative min-h-[85vh] flex items-center">
-        {/* Botanical decorations */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Large peony top-right */}
-          <Peony className="absolute -top-12 -right-10 w-[350px] h-[350px] animate-float-slow" />
-          {/* Rose bottom-left */}
-          <Rose className="absolute bottom-8 left-[3%] w-[130px] h-[165px] animate-float-reverse" />
-          {/* Eucalyptus branches framing */}
-          <EucalyptusBranch className="absolute top-4 -left-4 w-[120px] h-[290px] animate-sway" />
-          <EucalyptusBranch className="absolute -bottom-6 right-[2%] w-[100px] h-[240px] animate-float-slower scale-x-[-1]" />
-          {/* Wildflower accent */}
-          <WildflowerSprig className="absolute top-[18%] right-[10%] w-[80px] h-[190px] animate-float-slower" />
-          {/* Small blossoms scattered */}
-          <SmallBlossom className="absolute top-[20%] left-[22%] w-12 h-12 animate-float-reverse" variant={0} />
-          <SmallBlossom className="absolute bottom-[28%] right-[22%] w-10 h-10 animate-float-slow" variant={1} />
-          <SmallBlossom className="absolute bottom-[18%] left-[15%] w-11 h-11 animate-sway" variant={2} />
-          <SmallBlossom className="absolute top-[35%] right-[30%] w-9 h-9 animate-float-reverse" variant={3} />
-          {/* Floating petals drift */}
-          <FloatingPetals className="absolute inset-0 w-full h-full animate-float-slow" />
-          {/* Soft gradient orbs */}
-          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-radial from-blush-200/25 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-gradient-radial from-forest-200/20 to-transparent rounded-full blur-3xl" />
+      <section className="relative min-h-[80vh] flex items-center">
+        {/* Subtle background gradient */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blush-50/60 to-transparent" />
+          <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-forest-50/40 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
-          <div className="animate-fade-in-up">
-            <span className="badge-forest mb-8 inline-flex">
-              <span className="w-2 h-2 rounded-full bg-forest-400 animate-pulse-soft" />
-              Norges floristfellesskap
-            </span>
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 w-full">
+          <div className="max-w-3xl">
+            <div className="animate-fade-in-up">
+              <div className="flex items-center gap-3 mb-10">
+                <div className="w-8 h-[1px] bg-forest-400" />
+                <span className="text-sm font-medium text-forest-600 uppercase tracking-[0.2em]">
+                  Norges floristfellesskap
+                </span>
+              </div>
+            </div>
+
+            <h1 className="animate-fade-in-up font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-gray-900 leading-[0.95] mb-10 tracking-tight">
+              Finn din
+              <br />
+              <span className="italic text-forest-600">perfekte</span>
+              <br />
+              florist
+            </h1>
+
+            <p className="animate-fade-in-up-delay text-lg sm:text-xl text-gray-500 max-w-lg mb-12 leading-relaxed">
+              Send én forespørsel og motta tilbud fra opptil tre lokale florister
+              innen 48 timer. Helt gratis.
+            </p>
+
+            <div className="animate-fade-in-up-delay-2 flex flex-col sm:flex-row gap-4">
+              <Link href="/bestilling" className="btn-primary text-lg px-10 py-5 group">
+                Jeg trenger blomster
+                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+              <Link href="/florist" className="btn-outline text-lg px-10 py-5">
+                Jeg er florist
+              </Link>
+            </div>
           </div>
 
-          <h1 className="animate-fade-in-up font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-gray-900 leading-[1.05] mb-8 tracking-tight">
-            Finn din
-            <br />
-            <span className="gradient-text italic">perfekte florist</span>
-          </h1>
-
-          <p className="animate-fade-in-up-delay text-lg sm:text-xl text-gray-500 max-w-xl mx-auto mb-12 leading-relaxed">
-            Send én forespørsel — motta tilbud fra opptil 3 lokale florister innen 48 timer.
-            <span className="text-forest-600 font-medium"> Helt gratis for deg.</span>
-          </p>
-
-          <div className="animate-fade-in-up-delay-2 flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/bestilling" className="btn-primary text-lg px-10 py-5 group">
-              Jeg trenger blomster
-              <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            <Link href="/florist" className="btn-outline text-lg px-10 py-5">
-              Jeg er florist
-            </Link>
-          </div>
-
-          <div className="mt-12 flex items-center justify-center gap-8 text-sm text-gray-400">
-            <span className="flex items-center gap-1.5">
-              <svg className="w-4 h-4 text-forest-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-              Gratis
-            </span>
-            <span className="flex items-center gap-1.5">
-              <svg className="w-4 h-4 text-forest-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-              Ingen binding
-            </span>
-            <span className="flex items-center gap-1.5">
-              <svg className="w-4 h-4 text-forest-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-              Svar innen 48t
-            </span>
+          {/* Right side — editorial accent */}
+          <div className="hidden lg:block absolute right-12 top-1/2 -translate-y-1/2">
+            <div className="relative">
+              <div className="w-[280px] h-[400px] rounded-[2rem] bg-gradient-to-b from-blush-100 to-blush-50 border border-blush-200/40" />
+              <div className="absolute -bottom-6 -left-6 w-[200px] h-[280px] rounded-[2rem] bg-gradient-to-b from-forest-100 to-forest-50 border border-forest-200/40" />
+              <FloralAccent className="absolute top-8 right-8 w-16 h-16 text-blush-400" />
+              <FloralAccent className="absolute bottom-12 left-2 w-12 h-12 text-forest-400" />
+              {/* Text element inside the shape */}
+              <div className="absolute top-1/2 right-6 -translate-y-1/2 text-right">
+                <span className="font-display italic text-5xl text-blush-300/60 leading-none">
+                  blomst
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════ WAVE → HOW IT WORKS ═══════════════ */}
-      <WaveDivider color="#f0f7ee" />
+      {/* ═══════════════ TRUST BAR ═══════════════ */}
+      <section className="border-y border-gray-200/60 bg-white/40">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-3 text-sm text-gray-500">
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-forest-400" />
+            Gratis for deg
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-forest-400" />
+            Ingen binding
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-forest-400" />
+            Svar innen 48 timer
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-forest-400" />
+            600+ florister i Norge
+          </span>
+        </div>
+      </section>
 
       {/* ═══════════════ HOW IT WORKS ═══════════════ */}
-      <section className="bg-forest-50 relative py-24">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <SmallBlossom className="absolute top-12 right-[10%] w-14 h-14 animate-sway" variant={3} />
-          <SmallBlossom className="absolute bottom-16 left-[8%] w-10 h-10 animate-float-slow" variant={3} />
-          <EucalyptusBranch className="absolute -bottom-6 right-[2%] w-[70px] h-[170px] opacity-60 animate-sway" />
-        </div>
-
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <span className="badge-warm mb-4 inline-flex">Slik fungerer det</span>
-            <h2 className="font-serif text-4xl md:text-5xl text-gray-900 leading-tight">
-              Tre enkle steg til<br />
-              <span className="gradient-text italic">perfekte blomster</span>
-            </h2>
+      <section className="py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-[1px] bg-gray-300" />
+            <span className="text-sm font-medium text-gray-400 uppercase tracking-[0.2em]">Slik fungerer det</span>
           </div>
+          <h2 className="font-display text-4xl md:text-6xl text-gray-900 leading-tight mb-20">
+            Tre enkle steg til<br />
+            <span className="italic text-forest-600">perfekte blomster</span>
+          </h2>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
             {[
               {
-                step: "1",
-                icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                  </svg>
-                ),
-                title: "Beskriv drømmen",
-                desc: "Anledning, dato, budsjett og stil. Tar bare 3 minutter å fylle ut.",
-                accent: "from-forest-400 to-forest-500",
+                num: "01",
+                title: "Beskriv",
+                subtitle: "drømmen din",
+                desc: "Anledning, dato, budsjett og stil. Tar bare tre minutter å fylle ut skjemaet.",
+                accent: "text-forest-600",
+                line: "bg-forest-200",
               },
               {
-                step: "2",
-                icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                ),
-                title: "Motta tilbud",
-                desc: "Opptil 3 lokale florister sender deg skreddersydde tilbud innen 48 timer.",
-                accent: "from-blush-400 to-petal-400",
+                num: "02",
+                title: "Motta",
+                subtitle: "skreddersydde tilbud",
+                desc: "Opptil tre lokale florister sender deg personlige tilbud innen 48 timer.",
+                accent: "text-blush-500",
+                line: "bg-blush-200",
               },
               {
-                step: "3",
-                icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                ),
-                title: "Velg din favoritt",
+                num: "03",
+                title: "Velg",
+                subtitle: "din favoritt",
                 desc: "Sammenlign og velg floristen som treffer din stil best. Helt gratis.",
-                accent: "from-warm-300 to-warm-400",
+                accent: "text-warm-400",
+                line: "bg-warm-200",
               },
             ].map((item) => (
-              <div key={item.step} className="card-elevated text-center group">
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.accent} flex items-center justify-center text-white mx-auto mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                  {item.icon}
+              <div key={item.num} className="group">
+                <div className={`font-display text-6xl ${item.accent} opacity-20 mb-4 group-hover:opacity-40 transition-opacity duration-500`}>
+                  {item.num}
                 </div>
-                <div className="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-3">
-                  Steg {item.step}
-                </div>
-                <h3 className="font-serif text-2xl text-gray-800 mb-3">{item.title}</h3>
+                <div className={`w-12 h-[2px] ${item.line} mb-6`} />
+                <h3 className="font-display text-3xl text-gray-900 mb-1">
+                  {item.title}
+                </h3>
+                <p className="font-display italic text-xl text-gray-400 mb-4">{item.subtitle}</p>
                 <p className="text-gray-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-14">
+          <div className="mt-16 pt-16 border-t border-gray-100">
             <Link href="/bestilling" className="btn-primary text-lg px-8 py-4 group">
               Send blomsterforespørsel
               <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -181,63 +186,30 @@ export default function Home() {
         </div>
       </section>
 
-      <WaveDivider flip color="#f0f7ee" />
-
       {/* ═══════════════ OCCASIONS ═══════════════ */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <FloatingPetals className="absolute inset-0 w-full h-full opacity-70 animate-float-slower" />
-          <Dahlia className="absolute -bottom-16 -left-16 w-[250px] h-[250px] opacity-50" />
-        </div>
-
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <span className="badge-blush mb-4 inline-flex">For alle anledninger</span>
-            <h2 className="font-serif text-4xl md:text-5xl text-gray-900 leading-tight">
-              Blomster som<br />
-              <span className="gradient-text-warm italic">forteller din historie</span>
-            </h2>
+      <section className="py-28 bg-gradient-to-b from-cream-200/60 to-cream">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-[1px] bg-gray-300" />
+            <span className="text-sm font-medium text-gray-400 uppercase tracking-[0.2em]">Anledninger</span>
           </div>
+          <h2 className="font-display text-4xl md:text-6xl text-gray-900 leading-tight mb-16">
+            Blomster som<br />
+            <span className="italic text-blush-500">forteller din historie</span>
+          </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              {
-                emoji: "💍",
-                label: "Bryllup",
-                desc: "Brudebukett, bordpynt, kirke & fest",
-                gradient: "from-petal-50 to-blush-50",
-                border: "border-petal-200/60",
-              },
-              {
-                emoji: "🏢",
-                label: "Bedrift",
-                desc: "Kontor, arrangement, resepsjon",
-                gradient: "from-forest-50 to-sage-50",
-                border: "border-forest-200/60",
-              },
-              {
-                emoji: "🎉",
-                label: "Feiring",
-                desc: "Bursdag, konfirmasjon, jubileum",
-                gradient: "from-warm-50 to-cream-200",
-                border: "border-warm-200/60",
-              },
-              {
-                emoji: "🕯️",
-                label: "Minnestund",
-                desc: "Kranser, dekorasjoner, med varme",
-                gradient: "from-sage-50 to-cream-200",
-                border: "border-sage-200/60",
-              },
+              { label: "Bryllup", desc: "Brudebukett, bordpynt, kirke & fest", accent: "border-l-blush-400" },
+              { label: "Bedrift", desc: "Kontor, arrangement, resepsjon", accent: "border-l-forest-400" },
+              { label: "Feiring", desc: "Bursdag, konfirmasjon, jubileum", accent: "border-l-warm-400" },
+              { label: "Minnestund", desc: "Kranser, dekorasjoner, med varme", accent: "border-l-sage-400" },
             ].map((item) => (
               <div
                 key={item.label}
-                className={`relative bg-gradient-to-br ${item.gradient} rounded-3xl p-7 border ${item.border} hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-500 group cursor-default`}
+                className={`bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-100/80 border-l-[3px] ${item.accent} hover:shadow-soft-lg hover:-translate-y-0.5 transition-all duration-500`}
               >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {item.emoji}
-                </div>
-                <h3 className="font-serif text-xl text-gray-800 mb-1.5">{item.label}</h3>
+                <h3 className="font-display text-xl text-gray-800 mb-2">{item.label}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -246,44 +218,42 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ FOR FLORISTS ═══════════════ */}
-      <section className="py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-forest-800 via-forest-700 to-forest-900">
-            {/* Decorative */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <Peony className="absolute -top-10 -right-10 w-[280px] h-[280px] opacity-[0.15]" />
-              <EucalyptusBranch className="absolute -bottom-6 right-8 w-[80px] h-[190px] opacity-[0.12] animate-sway" />
-              <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-forest-600/20 to-transparent" />
-            </div>
+      <section className="py-28 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="relative rounded-[2rem] overflow-hidden bg-forest-800">
+            {/* Subtle texture */}
+            <div className="absolute inset-0 bg-gradient-to-br from-forest-800 via-forest-700 to-forest-900" />
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-forest-600/15 to-transparent" />
 
-            <div className="relative z-10 p-10 md:p-16 lg:p-20">
-              <div className="max-w-2xl">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-forest-200 text-sm font-medium mb-8 backdrop-blur-sm border border-white/10">
-                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse-soft" />
-                  For florister
-                </span>
+            <div className="relative z-10 p-10 md:p-16 lg:p-20 lg:flex lg:gap-16 lg:items-center">
+              <div className="lg:flex-1">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-8 h-[1px] bg-forest-500" />
+                  <span className="text-sm font-medium text-forest-400 uppercase tracking-[0.2em]">For florister</span>
+                </div>
 
-                <h2 className="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">
-                  Kvalifiserte kunder.<br />
-                  <span className="text-forest-300 italic">Betal kun ved booking.</span>
+                <h2 className="font-display text-4xl md:text-5xl text-white mb-6 leading-tight">
+                  Kvalifiserte kunder.
+                  <br />
+                  <span className="italic text-forest-300">Betal kun ved booking.</span>
                 </h2>
 
-                <p className="text-forest-200/80 text-lg mb-8 leading-relaxed max-w-xl">
-                  Slutt å bruke tid på forespørsler som aldri fører til noe.
-                  Vi sender deg kunder som er klare til å booke — du betaler kun
-                  10% provisjon ved bekreftet oppdrag.
+                <p className="text-forest-200/70 text-lg mb-10 leading-relaxed max-w-xl">
+                  Vi sender deg kunder som er klare til å booke.
+                  Du betaler kun 10% provisjon ved bekreftet oppdrag.
+                  Ingen månedlig avgift. Ingen risiko.
                 </p>
 
-                <div className="grid sm:grid-cols-2 gap-4 mb-10">
+                <div className="space-y-4 mb-12">
                   {[
-                    { icon: "✦", text: "Ingen månedlig avgift" },
-                    { icon: "✦", text: "Grunnleggere: permanent 8% provisjon" },
-                    { icon: "✦", text: "Du beholder kunderelasjon" },
-                    { icon: "✦", text: "Bedre enn Interfloras 20–30%" },
+                    "Ingen månedlig avgift — betal kun ved booking",
+                    "Grunnleggere får permanent 8% provisjon",
+                    "Du beholder kunderelasjon og merkevare",
+                    "Langt bedre enn Interfloras 20–30%",
                   ].map((point) => (
-                    <div key={point.text} className="flex items-start gap-3">
-                      <span className="text-forest-400 mt-0.5 flex-shrink-0 text-sm">{point.icon}</span>
-                      <span className="text-forest-100/90 text-sm leading-relaxed">{point.text}</span>
+                    <div key={point} className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-forest-400 mt-2 flex-shrink-0" />
+                      <span className="text-forest-100/80 leading-relaxed">{point}</span>
                     </div>
                   ))}
                 </div>
@@ -298,9 +268,27 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
-                  <span className="text-forest-400/80 text-sm self-center">
-                    De første 50 floristene — grunnlegger-status for alltid
-                  </span>
+                </div>
+                <p className="text-forest-500/60 text-sm mt-4">
+                  De første 50 floristene — grunnlegger-status for alltid
+                </p>
+              </div>
+
+              {/* Right side — numbers */}
+              <div className="hidden lg:block lg:flex-shrink-0">
+                <div className="space-y-8 text-right">
+                  <div>
+                    <div className="font-display text-6xl text-white/90">10%</div>
+                    <div className="text-forest-400 text-sm">provisjon</div>
+                  </div>
+                  <div>
+                    <div className="font-display text-6xl text-white/90">0 kr</div>
+                    <div className="text-forest-400 text-sm">månedlig avgift</div>
+                  </div>
+                  <div>
+                    <div className="font-display text-6xl text-white/90">48t</div>
+                    <div className="text-forest-400 text-sm">til tilbud</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -308,41 +296,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════ STATS ═══════════════ */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-cream to-cream-200 pointer-events-none" />
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <SmallBlossom className="absolute top-8 left-[15%] w-10 h-10 animate-float-slow" variant={3} />
-          <SmallBlossom className="absolute bottom-8 right-[12%] w-12 h-12 animate-sway" variant={1} />
-        </div>
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <div className="grid sm:grid-cols-3 gap-8">
+      {/* ═══════════════ STATS (mobile — hidden on lg where they're in florist section) ═══════════════ */}
+      <section className="py-16 lg:hidden">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid grid-cols-3 gap-6">
             {[
-              {
-                num: "600+",
-                label: "florister i Norge",
-                sublabel: "Klare til å gi deg tilbud",
-                color: "text-forest-600",
-              },
-              {
-                num: "0 kr",
-                label: "for deg som kunde",
-                sublabel: "Floristen betaler provisjon",
-                color: "text-blush-500",
-              },
-              {
-                num: "48t",
-                label: "maks ventetid",
-                sublabel: "Fra forespørsel til tilbud",
-                color: "text-warm-400",
-              },
+              { num: "600+", label: "florister" },
+              { num: "0 kr", label: "for kunden" },
+              { num: "48t", label: "ventetid" },
             ].map((stat) => (
-              <div key={stat.label} className="text-center group">
-                <div className={`font-serif text-5xl md:text-6xl ${stat.color} mb-2 group-hover:scale-105 transition-transform duration-300`}>
-                  {stat.num}
-                </div>
-                <div className="text-gray-800 font-medium mb-0.5">{stat.label}</div>
-                <div className="text-gray-400 text-sm">{stat.sublabel}</div>
+              <div key={stat.label} className="text-center">
+                <div className="font-display text-4xl text-forest-600 mb-1">{stat.num}</div>
+                <div className="text-gray-400 text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -350,22 +315,16 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ FINAL CTA ═══════════════ */}
-      <section className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-forest-50 via-cream to-blush-50" />
-          <Peony className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] opacity-25" />
-          <WildflowerSprig className="absolute top-6 right-[12%] w-[70px] h-[165px] animate-sway opacity-60" />
-          <Rose className="absolute bottom-4 left-[8%] w-[90px] h-[115px] animate-float-slow opacity-50" />
-          <FloatingPetals className="absolute inset-0 w-full h-full opacity-50 animate-float-reverse" />
-        </div>
-
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-serif text-4xl md:text-6xl text-gray-900 mb-6 leading-tight">
+      <section className="py-32 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-cream to-forest-50/30 pointer-events-none" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <FloralAccent className="w-14 h-14 text-forest-400 mx-auto mb-8 opacity-40" />
+          <h2 className="font-display text-5xl md:text-7xl text-gray-900 mb-6 leading-tight">
             Klar til å finne<br />
-            <span className="gradient-text italic">din florist?</span>
+            <span className="italic text-forest-600">din florist?</span>
           </h2>
-          <p className="text-xl text-gray-500 mb-10">
-            Det tar 3 minutter. Og det er helt gratis.
+          <p className="text-xl text-gray-500 mb-12 max-w-md mx-auto">
+            Det tar tre minutter. Og det er helt gratis.
           </p>
           <Link href="/bestilling" className="btn-primary text-lg px-12 py-5 group">
             Send blomsterforespørsel
@@ -377,20 +336,24 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ FOOTER ═══════════════ */}
-      <footer className="border-t border-gray-200/50 bg-white/40 backdrop-blur-sm">
-        <div className="max-w-5xl mx-auto px-6 py-10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <span className="font-serif text-xl text-forest-700 italic">
-              blomsterkollektivet<span className="text-blush-400">.</span>
-            </span>
-            <div className="flex items-center gap-6 text-sm text-gray-400">
+      <footer className="border-t border-gray-200/50">
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div>
+              <div className="flex flex-col leading-none mb-2">
+                <span className="font-display text-xl text-forest-700">blomster</span>
+                <span className="font-display text-xl text-forest-700 -mt-0.5">kollektivet<span className="text-blush-400">.</span></span>
+              </div>
+              <p className="text-sm text-gray-400">Norges floristfellesskap</p>
+            </div>
+            <div className="flex items-center gap-8 text-sm text-gray-400">
               <Link href="/bestilling" className="hover:text-forest-600 transition-colors">Bestill blomster</Link>
               <Link href="/florist" className="hover:text-forest-600 transition-colors">For florister</Link>
               <span>hei@blomsterkollektivet.no</span>
             </div>
-            <span className="text-sm text-gray-300">
-              © 2026 Blomsterkollektivet
-            </span>
+          </div>
+          <div className="mt-8 pt-8 border-t border-gray-100 text-sm text-gray-300">
+            © 2026 Blomsterkollektivet
           </div>
         </div>
       </footer>
