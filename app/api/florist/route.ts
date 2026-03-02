@@ -28,13 +28,13 @@ export async function POST(req: NextRequest) {
       : "Ikke oppgitt";
 
     await transporter.sendMail({
-      from: `"Knopp" <${process.env.SMTP_USER}>`,
+      from: `"Blomsterkollektivet" <${process.env.SMTP_USER}>`,
       to: "dibber@amdal.dev",
       replyTo: epost,
       subject: `🌿 Ny florist-registrering — ${butikknavn} (${by})`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; background: #f0f7ee; padding: 40px; border-radius: 16px;">
-          <h1 style="color: #2d5a27; font-size: 28px; margin-bottom: 4px;">Ny florist på Knopp 🌿</h1>
+          <h1 style="color: #2d5a27; font-size: 28px; margin-bottom: 4px;">Ny florist på Blomsterkollektivet 🌿</h1>
           <p style="color: #666; font-size: 14px; margin-bottom: 32px;">Innsendt ${new Date().toLocaleString("nb-NO")}</p>
 
           <table style="width: 100%; border-collapse: collapse;">
@@ -49,16 +49,16 @@ export async function POST(req: NextRequest) {
             ${melding ? `<tr style="border-top: 1px solid #d5e8d0;"><td style="padding: 10px 0; color: #888; font-size: 14px; vertical-align: top;">Om seg selv</td><td style="padding: 10px 0; color: #1a1a1a;">${melding}</td></tr>` : ""}
           </table>
 
-          <p style="color: #888; font-size: 12px; margin-top: 24px;">Sendt via knopp.no/florist</p>
+          <p style="color: #888; font-size: 12px; margin-top: 24px;">Sendt via blomsterkollektivet.no/florist</p>
         </div>
       `,
     });
 
     // Bekreftelse til florist
     await transporter.sendMail({
-      from: `"Knopp" <${process.env.SMTP_USER}>`,
+      from: `"Blomsterkollektivet" <${process.env.SMTP_USER}>`,
       to: epost,
-      subject: `Velkommen til Knopp, ${navn}! 🌿`,
+      subject: `Velkommen til Blomsterkollektivet, ${navn}! 🌿`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; background: #f0f7ee; padding: 40px; border-radius: 16px;">
           <h1 style="color: #2d5a27; font-size: 28px;">Velkommen, ${navn}! 🌿</h1>
@@ -69,12 +69,12 @@ export async function POST(req: NextRequest) {
           <div style="margin: 24px 0; padding: 20px; background: white; border-radius: 12px; border: 1px solid #d5e8d0;">
             <h3 style="color: #2d5a27; margin: 0 0 12px;">🌟 Du er grunnlegger-florist!</h3>
             <p style="color: #444; margin: 0; font-size: 14px; line-height: 1.6;">
-              De første 50 floristene på Knopp får <strong>permanent 10% provisjon</strong>
+              De første 50 floristene på Blomsterkollektivet får <strong>permanent 10% provisjon</strong>
               (istedenfor standard 12%) og et grunnlegger-badge på profilen din.
               Ingen månedlig avgift — du betaler kun per bekreftet oppdrag.
             </p>
           </div>
-          <p style="color: #888; font-size: 13px;">Spørsmål? Svar på denne e-posten eller skriv til hei@knopp.no</p>
+          <p style="color: #888; font-size: 13px;">Spørsmål? Svar på denne e-posten eller skriv til hei@blomsterkollektivet.no</p>
         </div>
       `,
     });
