@@ -1,126 +1,23 @@
 import Link from "next/link";
-
-/* ─── Botanical SVG illustrations — visible and beautiful ─── */
-
-function Peony({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Outer petals */}
-      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#f0a99a" opacity="0.35" transform="rotate(0 100 100)" />
-      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#e48070" opacity="0.25" transform="rotate(60 100 100)" />
-      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#f8c8be" opacity="0.35" transform="rotate(120 100 100)" />
-      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#f0a99a" opacity="0.25" transform="rotate(180 100 100)" />
-      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#fce4df" opacity="0.35" transform="rotate(240 100 100)" />
-      <ellipse cx="100" cy="58" rx="28" ry="42" fill="#e48070" opacity="0.25" transform="rotate(300 100 100)" />
-      {/* Inner petals */}
-      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#f8c8be" opacity="0.5" transform="rotate(30 100 100)" />
-      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#fce4df" opacity="0.45" transform="rotate(90 100 100)" />
-      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#f0a99a" opacity="0.4" transform="rotate(150 100 100)" />
-      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#f8c8be" opacity="0.5" transform="rotate(210 100 100)" />
-      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#fce4df" opacity="0.45" transform="rotate(270 100 100)" />
-      <ellipse cx="100" cy="72" rx="18" ry="26" fill="#f0a99a" opacity="0.4" transform="rotate(330 100 100)" />
-      {/* Center */}
-      <circle cx="100" cy="100" r="14" fill="#c17f6e" opacity="0.35" />
-      <circle cx="100" cy="100" r="8" fill="#a3654f" opacity="0.3" />
-    </svg>
-  );
-}
-
-function WildFlower({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 120 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Stem */}
-      <path d="M60 90 C58 130, 55 170, 60 210" stroke="#80bc74" strokeWidth="2.5" opacity="0.5" strokeLinecap="round" />
-      {/* Leaves on stem */}
-      <path d="M60 140 C45 130, 30 128, 25 135 C30 140, 45 142, 60 140Z" fill="#b5d9ac" opacity="0.45" />
-      <path d="M60 165 C75 155, 88 155, 92 162 C87 167, 75 167, 60 165Z" fill="#80bc74" opacity="0.4" />
-      {/* Flower petals */}
-      <ellipse cx="60" cy="52" rx="16" ry="28" fill="#f8c8be" opacity="0.5" />
-      <ellipse cx="60" cy="52" rx="16" ry="28" fill="#fce4df" opacity="0.45" transform="rotate(72 60 70)" />
-      <ellipse cx="60" cy="52" rx="16" ry="28" fill="#f0a99a" opacity="0.4" transform="rotate(144 60 70)" />
-      <ellipse cx="60" cy="52" rx="16" ry="28" fill="#f8c8be" opacity="0.5" transform="rotate(216 60 70)" />
-      <ellipse cx="60" cy="52" rx="16" ry="28" fill="#fce4df" opacity="0.45" transform="rotate(288 60 70)" />
-      {/* Center */}
-      <circle cx="60" cy="70" r="10" fill="#edc47e" opacity="0.6" />
-      <circle cx="60" cy="70" r="5" fill="#e4a94d" opacity="0.5" />
-    </svg>
-  );
-}
-
-function LeafBranch({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 180 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Main stem */}
-      <path d="M90 10 C88 60, 85 150, 90 290" stroke="#80bc74" strokeWidth="2.5" opacity="0.45" strokeLinecap="round" />
-      {/* Leaves — alternating sides */}
-      <path d="M90 40 C65 25, 40 28, 30 40 C40 50, 60 48, 90 40Z" fill="#b5d9ac" opacity="0.4" />
-      <path d="M90 70 C115 55, 140 58, 148 70 C138 80, 118 78, 90 70Z" fill="#dcedd8" opacity="0.45" />
-      <path d="M90 100 C65 85, 38 90, 28 105 C40 112, 62 108, 90 100Z" fill="#80bc74" opacity="0.35" />
-      <path d="M90 135 C118 120, 145 125, 152 138 C142 148, 120 143, 90 135Z" fill="#b5d9ac" opacity="0.4" />
-      <path d="M90 170 C62 158, 38 162, 30 175 C42 182, 64 178, 90 170Z" fill="#dcedd8" opacity="0.4" />
-      <path d="M90 205 C116 192, 142 196, 150 210 C140 218, 118 214, 90 205Z" fill="#80bc74" opacity="0.3" />
-      <path d="M90 240 C68 228, 45 232, 38 245 C48 252, 68 248, 90 240Z" fill="#b5d9ac" opacity="0.35" />
-    </svg>
-  );
-}
-
-function FloatingPetals({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Scattered petals falling */}
-      <ellipse cx="80" cy="60" rx="12" ry="20" fill="#f8c8be" opacity="0.4" transform="rotate(-25 80 60)" />
-      <ellipse cx="320" cy="100" rx="10" ry="16" fill="#f0a99a" opacity="0.35" transform="rotate(35 320 100)" />
-      <ellipse cx="180" cy="180" rx="14" ry="22" fill="#fce4df" opacity="0.45" transform="rotate(-15 180 180)" />
-      <ellipse cx="50" cy="280" rx="11" ry="18" fill="#f0a99a" opacity="0.3" transform="rotate(50 50 280)" />
-      <ellipse cx="350" cy="250" rx="13" ry="20" fill="#f8c8be" opacity="0.4" transform="rotate(-40 350 250)" />
-      <ellipse cx="250" cy="50" rx="9" ry="15" fill="#fce4df" opacity="0.35" transform="rotate(20 250 50)" />
-      <ellipse cx="120" cy="340" rx="12" ry="19" fill="#f8c8be" opacity="0.35" transform="rotate(-30 120 340)" />
-      <ellipse cx="290" cy="330" rx="10" ry="17" fill="#fce4df" opacity="0.4" transform="rotate(45 290 330)" />
-    </svg>
-  );
-}
-
-function SmallFlower({ className, color = "#f0a99a" }: { className?: string; color?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="30" cy="18" rx="8" ry="14" fill={color} opacity="0.45" />
-      <ellipse cx="30" cy="18" rx="8" ry="14" fill={color} opacity="0.4" transform="rotate(72 30 30)" />
-      <ellipse cx="30" cy="18" rx="8" ry="14" fill={color} opacity="0.45" transform="rotate(144 30 30)" />
-      <ellipse cx="30" cy="18" rx="8" ry="14" fill={color} opacity="0.4" transform="rotate(216 30 30)" />
-      <ellipse cx="30" cy="18" rx="8" ry="14" fill={color} opacity="0.45" transform="rotate(288 30 30)" />
-      <circle cx="30" cy="30" r="6" fill="#edc47e" opacity="0.6" />
-    </svg>
-  );
-}
-
-function WaveDivider({ flip, color = "#f0f7ee" }: { flip?: boolean; color?: string }) {
-  return (
-    <div className={`wave-divider ${flip ? "rotate-180" : ""}`}>
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,20 1440,40 L1440,80 L0,80 Z"
-          fill={color}
-        />
-      </svg>
-    </div>
-  );
-}
+import {
+  Peony,
+  Rose,
+  EucalyptusBranch,
+  Dahlia,
+  FloatingPetals,
+  WildflowerSprig,
+  SmallBlossom,
+  WaveDivider,
+} from "./components/botanicals";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-cream overflow-hidden">
       {/* ═══════════════ NAV ═══════════════ */}
       <nav className="relative z-50 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-forest-400 to-forest-600 flex items-center justify-center">
-            <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C8 2 4 6 4 10C4 16 12 22 12 22C12 22 20 16 20 10C20 6 16 2 12 2ZM12 13C10.3 13 9 11.7 9 10C9 8.3 10.3 7 12 7C13.7 7 15 8.3 15 10C15 11.7 13.7 13 12 13Z" />
-            </svg>
-          </div>
-          <span className="font-serif text-xl text-forest-700 tracking-tight">
-            blomsterkollektivet<span className="text-blush-400">.</span>
-          </span>
-        </div>
+        <span className="font-serif text-2xl text-forest-700 tracking-tight italic">
+          blomsterkollektivet<span className="text-blush-400">.</span>
+        </span>
         <div className="flex items-center gap-6">
           <Link href="/bestilling" className="text-sm text-gray-500 hover:text-forest-600 transition-colors hidden sm:block">
             Bestill blomster
@@ -133,23 +30,25 @@ export default function Home() {
 
       {/* ═══════════════ HERO ═══════════════ */}
       <section className="relative min-h-[85vh] flex items-center">
-        {/* Decorative botanicals — actually visible! */}
+        {/* Botanical decorations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Large peony top-right */}
-          <Peony className="absolute -top-16 -right-16 w-[380px] h-[380px] animate-float-slow" />
-          {/* Leaf branch left side */}
-          <LeafBranch className="absolute top-10 -left-6 w-[140px] h-[240px] animate-sway" />
-          {/* Wildflower right */}
-          <WildFlower className="absolute top-1/4 right-[8%] w-[100px] h-[180px] animate-float-slower" />
-          {/* Small flowers scattered */}
-          <SmallFlower className="absolute top-[15%] left-[20%] w-14 h-14 animate-float-reverse" color="#f0a99a" />
-          <SmallFlower className="absolute bottom-[30%] right-[20%] w-10 h-10 animate-float-slow" color="#f8c8be" />
-          <SmallFlower className="absolute bottom-[20%] left-[12%] w-12 h-12 animate-sway" color="#e48070" />
-          {/* Floating petals across the whole hero */}
+          <Peony className="absolute -top-12 -right-10 w-[350px] h-[350px] animate-float-slow" />
+          {/* Rose bottom-left */}
+          <Rose className="absolute bottom-8 left-[3%] w-[130px] h-[165px] animate-float-reverse" />
+          {/* Eucalyptus branches framing */}
+          <EucalyptusBranch className="absolute top-4 -left-4 w-[120px] h-[290px] animate-sway" />
+          <EucalyptusBranch className="absolute -bottom-6 right-[2%] w-[100px] h-[240px] animate-float-slower scale-x-[-1]" />
+          {/* Wildflower accent */}
+          <WildflowerSprig className="absolute top-[18%] right-[10%] w-[80px] h-[190px] animate-float-slower" />
+          {/* Small blossoms scattered */}
+          <SmallBlossom className="absolute top-[20%] left-[22%] w-12 h-12 animate-float-reverse" variant={0} />
+          <SmallBlossom className="absolute bottom-[28%] right-[22%] w-10 h-10 animate-float-slow" variant={1} />
+          <SmallBlossom className="absolute bottom-[18%] left-[15%] w-11 h-11 animate-sway" variant={2} />
+          <SmallBlossom className="absolute top-[35%] right-[30%] w-9 h-9 animate-float-reverse" variant={3} />
+          {/* Floating petals drift */}
           <FloatingPetals className="absolute inset-0 w-full h-full animate-float-slow" />
-          {/* Another leaf branch, bottom-right */}
-          <LeafBranch className="absolute -bottom-10 right-[3%] w-[120px] h-[200px] animate-float-reverse scale-x-[-1]" />
-          {/* Gradient orbs for depth */}
+          {/* Soft gradient orbs */}
           <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-radial from-blush-200/25 to-transparent rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] bg-gradient-radial from-forest-200/20 to-transparent rounded-full blur-3xl" />
         </div>
@@ -165,7 +64,7 @@ export default function Home() {
           <h1 className="animate-fade-in-up font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-gray-900 leading-[1.05] mb-8 tracking-tight">
             Finn din
             <br />
-            <span className="gradient-text">perfekte florist</span>
+            <span className="gradient-text italic">perfekte florist</span>
           </h1>
 
           <p className="animate-fade-in-up-delay text-lg sm:text-xl text-gray-500 max-w-xl mx-auto mb-12 leading-relaxed">
@@ -207,11 +106,10 @@ export default function Home() {
 
       {/* ═══════════════ HOW IT WORKS ═══════════════ */}
       <section className="bg-forest-50 relative py-24">
-        {/* Decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <SmallFlower className="absolute top-12 right-[10%] w-16 h-16 animate-sway" color="#b5d9ac" />
-          <SmallFlower className="absolute bottom-16 left-[8%] w-12 h-12 animate-float-slow" color="#80bc74" />
-          <LeafBranch className="absolute -bottom-8 right-[2%] w-[80px] h-[140px] opacity-60 animate-sway" />
+          <SmallBlossom className="absolute top-12 right-[10%] w-14 h-14 animate-sway" variant={3} />
+          <SmallBlossom className="absolute bottom-16 left-[8%] w-10 h-10 animate-float-slow" variant={3} />
+          <EucalyptusBranch className="absolute -bottom-6 right-[2%] w-[70px] h-[170px] opacity-60 animate-sway" />
         </div>
 
         <div className="max-w-5xl mx-auto px-6 relative z-10">
@@ -219,7 +117,7 @@ export default function Home() {
             <span className="badge-warm mb-4 inline-flex">Slik fungerer det</span>
             <h2 className="font-serif text-4xl md:text-5xl text-gray-900 leading-tight">
               Tre enkle steg til<br />
-              <span className="gradient-text">perfekte blomster</span>
+              <span className="gradient-text italic">perfekte blomster</span>
             </h2>
           </div>
 
@@ -287,10 +185,9 @@ export default function Home() {
 
       {/* ═══════════════ OCCASIONS ═══════════════ */}
       <section className="py-24 relative">
-        {/* Decorative */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <FloatingPetals className="absolute inset-0 w-full h-full opacity-70 animate-float-slower" />
-          <Peony className="absolute -bottom-20 -left-20 w-[280px] h-[280px] opacity-50" />
+          <Dahlia className="absolute -bottom-16 -left-16 w-[250px] h-[250px] opacity-50" />
         </div>
 
         <div className="max-w-5xl mx-auto px-6 relative z-10">
@@ -298,7 +195,7 @@ export default function Home() {
             <span className="badge-blush mb-4 inline-flex">For alle anledninger</span>
             <h2 className="font-serif text-4xl md:text-5xl text-gray-900 leading-tight">
               Blomster som<br />
-              <span className="gradient-text-warm">forteller din historie</span>
+              <span className="gradient-text-warm italic">forteller din historie</span>
             </h2>
           </div>
 
@@ -352,11 +249,10 @@ export default function Home() {
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-forest-800 via-forest-700 to-forest-900">
-            {/* Decorative elements — visible on dark bg */}
+            {/* Decorative */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <Peony className="absolute -top-16 -right-16 w-[320px] h-[320px] opacity-[0.12]" />
-              <LeafBranch className="absolute -bottom-10 right-10 w-[100px] h-[180px] opacity-[0.1] animate-sway" />
-              <SmallFlower className="absolute top-20 right-[30%] w-16 h-16 opacity-[0.08]" color="#ffffff" />
+              <Peony className="absolute -top-10 -right-10 w-[280px] h-[280px] opacity-[0.15]" />
+              <EucalyptusBranch className="absolute -bottom-6 right-8 w-[80px] h-[190px] opacity-[0.12] animate-sway" />
               <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-forest-600/20 to-transparent" />
             </div>
 
@@ -369,7 +265,7 @@ export default function Home() {
 
                 <h2 className="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">
                   Kvalifiserte kunder.<br />
-                  <span className="text-forest-300">Betal kun ved booking.</span>
+                  <span className="text-forest-300 italic">Betal kun ved booking.</span>
                 </h2>
 
                 <p className="text-forest-200/80 text-lg mb-8 leading-relaxed max-w-xl">
@@ -416,8 +312,8 @@ export default function Home() {
       <section className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-cream to-cream-200 pointer-events-none" />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <SmallFlower className="absolute top-8 left-[15%] w-10 h-10 animate-float-slow opacity-70" color="#b5d9ac" />
-          <SmallFlower className="absolute bottom-8 right-[12%] w-12 h-12 animate-sway opacity-60" color="#f8c8be" />
+          <SmallBlossom className="absolute top-8 left-[15%] w-10 h-10 animate-float-slow" variant={3} />
+          <SmallBlossom className="absolute bottom-8 right-[12%] w-12 h-12 animate-sway" variant={1} />
         </div>
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <div className="grid sm:grid-cols-3 gap-8">
@@ -455,19 +351,18 @@ export default function Home() {
 
       {/* ═══════════════ FINAL CTA ═══════════════ */}
       <section className="relative py-28 overflow-hidden">
-        {/* Background with botanicals */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-forest-50 via-cream to-blush-50" />
-          <Peony className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-25" />
-          <WildFlower className="absolute top-8 right-[12%] w-[80px] h-[150px] animate-sway opacity-60" />
-          <WildFlower className="absolute bottom-8 left-[10%] w-[70px] h-[130px] animate-float-slow opacity-50 scale-x-[-1]" />
+          <Peony className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] opacity-25" />
+          <WildflowerSprig className="absolute top-6 right-[12%] w-[70px] h-[165px] animate-sway opacity-60" />
+          <Rose className="absolute bottom-4 left-[8%] w-[90px] h-[115px] animate-float-slow opacity-50" />
           <FloatingPetals className="absolute inset-0 w-full h-full opacity-50 animate-float-reverse" />
         </div>
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <h2 className="font-serif text-4xl md:text-6xl text-gray-900 mb-6 leading-tight">
             Klar til å finne<br />
-            <span className="gradient-text">din florist?</span>
+            <span className="gradient-text italic">din florist?</span>
           </h2>
           <p className="text-xl text-gray-500 mb-10">
             Det tar 3 minutter. Og det er helt gratis.
@@ -485,16 +380,9 @@ export default function Home() {
       <footer className="border-t border-gray-200/50 bg-white/40 backdrop-blur-sm">
         <div className="max-w-5xl mx-auto px-6 py-10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-forest-400 to-forest-600 flex items-center justify-center">
-                <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C8 2 4 6 4 10C4 16 12 22 12 22C12 22 20 16 20 10C20 6 16 2 12 2ZM12 13C10.3 13 9 11.7 9 10C9 8.3 10.3 7 12 7C13.7 7 15 8.3 15 10C15 11.7 13.7 13 12 13Z" />
-                </svg>
-              </div>
-              <span className="font-serif text-lg text-forest-700">
-                blomsterkollektivet<span className="text-blush-400">.</span>
-              </span>
-            </div>
+            <span className="font-serif text-xl text-forest-700 italic">
+              blomsterkollektivet<span className="text-blush-400">.</span>
+            </span>
             <div className="flex items-center gap-6 text-sm text-gray-400">
               <Link href="/bestilling" className="hover:text-forest-600 transition-colors">Bestill blomster</Link>
               <Link href="/florist" className="hover:text-forest-600 transition-colors">For florister</Link>
