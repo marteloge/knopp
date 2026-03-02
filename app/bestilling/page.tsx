@@ -93,8 +93,9 @@ export default function BestillingPage() {
     <div className="min-h-screen bg-gradient-to-b from-cream to-cream-200">
       {/* Nav */}
       <nav className="flex items-center justify-between px-6 py-5 max-w-3xl mx-auto">
-        <Link href="/" className="font-serif text-xl text-forest-700 tracking-tight italic">
-          blomsterkollektivet<span className="text-blush-400">.</span>
+        <Link href="/" className="flex flex-col leading-none">
+          <span className="font-display text-lg text-forest-700">blomster</span>
+          <span className="font-display text-lg text-forest-700 -mt-0.5">kollektivet<span className="text-blush-400">.</span></span>
         </Link>
         <span className="text-sm text-gray-400 font-medium">Steg {step} av 2</span>
       </nav>
