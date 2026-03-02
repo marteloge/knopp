@@ -27,13 +27,13 @@ export async function POST(req: NextRequest) {
     const norskdyrketLabel = norskdyrketText[Number(norskdyrket) - 1] || norskdyrket;
 
     await transporter.sendMail({
-      from: `"Knopp" <${process.env.SMTP_USER}>`,
+      from: `"Blomsterkollektivet" <${process.env.SMTP_USER}>`,
       to: "dibber@amdal.dev",
       replyTo: epost,
       subject: `🌸 Ny blomsterforespørsel — ${anledning} i ${sted}`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; background: #faf7f2; padding: 40px; border-radius: 16px;">
-          <h1 style="color: #2d5a27; font-size: 28px; margin-bottom: 4px;">Ny forespørsel fra Knopp 🌸</h1>
+          <h1 style="color: #2d5a27; font-size: 28px; margin-bottom: 4px;">Ny forespørsel fra Blomsterkollektivet 🌸</h1>
           <p style="color: #666; font-size: 14px; margin-bottom: 32px;">Innsendt ${new Date().toLocaleString("nb-NO")}</p>
 
           <table style="width: 100%; border-collapse: collapse;">
@@ -51,14 +51,14 @@ export async function POST(req: NextRequest) {
             <p style="margin: 4px 0 0; color: #3d7a35;"><a href="mailto:${epost}" style="color: #3d7a35;">${epost}</a></p>
           </div>
 
-          <p style="color: #888; font-size: 12px; margin-top: 24px;">Sendt via knopp.no</p>
+          <p style="color: #888; font-size: 12px; margin-top: 24px;">Sendt via blomsterkollektivet.no</p>
         </div>
       `,
     });
 
     // Bekreftelsesmail til kunden
     await transporter.sendMail({
-      from: `"Knopp" <${process.env.SMTP_USER}>`,
+      from: `"Blomsterkollektivet" <${process.env.SMTP_USER}>`,
       to: epost,
       subject: `Forespørselen din er mottatt 🌸`,
       html: `
@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
             <strong style="color: #2d5a27;">Din forespørsel:</strong><br/>
             ${anledning} • ${dato} • ${sted} • ${budsjett}
           </div>
-          <p style="color: #888; font-size: 13px;">Spørsmål? Svar på denne e-posten eller skriv til hei@knopp.no</p>
+          <p style="color: #888; font-size: 13px;">Spørsmål? Svar på denne e-posten eller skriv til hei@blomsterkollektivet.no</p>
         </div>
       `,
     });
