@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
@@ -25,6 +26,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="nb">
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
+        <Script
+          defer
+          src="https://umami-ten-fawn.vercel.app/script.js"
+          data-website-id="6edbc44e-b244-44f5-b911-71ca9ad03bb0"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
